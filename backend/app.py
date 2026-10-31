@@ -8,14 +8,15 @@ import json
 import numpy as np
 import pandas as pd
 from datetime import datetime, timedelta
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, send_from_directory
 from flask_cors import CORS
 import joblib
 
-app = Flask(__name__)
-CORS(app)
-
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+FRONTEND_DIST = os.path.join(BASE_DIR, '..', 'frontend', 'dist')
+
+app = Flask(__name__, static_folder=FRONTEND_DIST, static_url_path='')
+CORS(app)
 DATA_PATH = os.path.join(BASE_DIR, 'data', 'retail_sales_data.csv')
 CACHE_PATH = os.path.join(BASE_DIR, 'ml', 'models_cache.json')
 MODELS_DIR = os.path.join(BASE_DIR, 'ml', 'saved')
@@ -343,6 +344,20 @@ def get_dataset():
         'missing_values': {col: 0 for col in df.columns}
     })
 
+# Serve Frontend static build
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def serve(path):
+    if path != "" and os.path.exists(os.path.join(FRONTEND_DIST, path)):
+        return send_from_directory(FRONTEND_DIST, path)
+    index_file = os.path.join(FRONTEND_DIST, 'index.html')
+    if os.path.exists(index_file):
+        return send_from_directory(FRONTEND_DIST, 'index.html')
+    return jsonify({
+        'message': 'SalesSense AI API is running. Build frontend with: cd frontend && npm run build'
+    })
+
 if __name__ == '__main__':
-    print("Starting SalesSense AI API on port 5000...")
-    app.run(host='0.0.0.0', port=5000, debug=False)
+    port = int(os.environ.get('PORT', 5000))
+    print(f"Starting SalesSense AI server on port {port}...")
+    app.run(host='0.0.0.0', port=port, debug=False)
