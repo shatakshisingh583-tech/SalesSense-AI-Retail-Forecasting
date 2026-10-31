@@ -91,12 +91,16 @@ Evaluated on a **strict chronological hold-out test set (576 records, 20% unseen
 | **Holt-Winters Exp Smoothing** | Statistical Time Series | 117.81 | 82.39 | 29.50% | 0.6020 | Fast Trend & Weekly Tracking |
 | **SARIMA (1,1,1)(1,1,0)[7]** | Seasonal Autoregressive | 153.29 | 121.66 | 42.73% | 0.3262 | Robust Structural Seasonality |
 
-### Classification Performance (Logistic Regression)
-- **Accuracy**: $88.7\%$
-- **Precision**: $82.5\%$
-- **Recall / Sensitivity**: $86.1\%$
-- **F1-Score**: $0.842$
-- **AUC-ROC**: $0.914$
+### Classification Performance (Logistic Regression on Demand Surge)
+- **Accuracy**: $81.25\%$
+- **Precision**: $57.53\%$
+- **Recall / Sensitivity**: $64.62\%$
+- **F1-Score**: $0.6087$
+- **AUC-ROC**: $0.9004$ (High discriminative capability)
+- **Odds Ratios ($e^\beta$)**:
+  - Promotional Events: **$7.17\times$** surge likelihood ($p < 0.001$)
+  - Public Holidays: **$12.07\times$** surge likelihood ($p < 0.001$)
+  - Weekend Cyclicality: **$2.06\times$** surge likelihood per weekend shift
 
 ---
 
