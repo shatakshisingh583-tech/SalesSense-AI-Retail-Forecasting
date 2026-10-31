@@ -1,10 +1,13 @@
 # 📈 SalesSense AI: Retail Sales Forecasting & Business Analytics Platform
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Online%20(Render)-success.svg)](https://salessense-ai-retail-forecasting.onrender.com)
 [![Predictive Analytics](https://img.shields.io/badge/Course-CSE3141%20Predictive%20Analytics-blue.svg)](https://jaipur.manipal.edu/)
 [![University](https://img.shields.io/badge/Institution-Manipal%20University%20Jaipur%20(MUJ)-orange.svg)](https://jaipur.manipal.edu/)
 [![Python](https://img.shields.io/badge/Backend-Python%203.12%20%7C%20Flask-green.svg)](https://flask.palletsprojects.com/)
 [![React](https://img.shields.io/badge/Frontend-React%2018%20%7C%20Vite%20%7C%20TailwindCSS-indigo.svg)](https://vitejs.dev/)
 [![ML](https://img.shields.io/badge/ML%20Engine-Scikit--Learn%20%7C%20Statsmodels-red.svg)](https://scikit-learn.org/)
+
+> 🚀 **Live Production Application:** [https://salessense-ai-retail-forecasting.onrender.com](https://salessense-ai-retail-forecasting.onrender.com)
 
 An enterprise-grade, end-to-end Predictive Analytics platform built specifically to satisfy all Course Outcomes (**CO 3141.1 through CO 3141.4**) for the **B.Tech CSE V Semester** course at **Manipal University Jaipur (MUJ)**.
 
