@@ -243,32 +243,32 @@ export default function ExecutiveDashboard({ onNavigate }) {
           </div>
         </div>
 
-        {/* Academic Highlights & Key Syllabus Links */}
+        {/* Enterprise Highlights & Demand Engine */}
         <div className="bg-gradient-to-br from-slate-900 via-indigo-950/40 to-slate-900 border border-indigo-900/40 p-5 rounded-2xl flex flex-col justify-between">
           <div>
             <div className="flex items-center space-x-2 text-indigo-400 text-xs font-bold uppercase tracking-wider mb-2">
               <Sparkles className="w-4 h-4" />
-              <span>Predictive Analytics Highlights</span>
+              <span>Predictive Intelligence Highlights</span>
             </div>
-            <h3 className="text-base font-bold text-white">Course Syllabus Implementation</h3>
+            <h3 className="text-base font-bold text-white">Demand & Replenishment Insights</h3>
             <div className="mt-4 space-y-3 text-xs text-slate-300">
               <div className="p-3 bg-slate-800/60 rounded-xl border border-slate-700/60">
-                <span className="font-semibold text-emerald-400">Unit 2 EDA:</span> Outlier bounds calculated via IQR (1.5×IQR) & Z-Score (|Z| &gt; 3) with box-plot distributions.
+                <span className="font-semibold text-emerald-400">Outlier Analytics:</span> Dynamic bounds calculated via Tukey IQR (1.5×IQR) & Z-Score (|Z| &gt; 3) to isolate promotional surges.
               </div>
               <div className="p-3 bg-slate-800/60 rounded-xl border border-slate-700/60">
-                <span className="font-semibold text-indigo-400">Unit 3 Classification:</span> Logistic regression model predicts demand spikes with F1-Score & ROC-AUC curves.
+                <span className="font-semibold text-indigo-400">Surge Risk Classifier:</span> Logistic regression predicts stockout probabilities with AUC-ROC calibration.
               </div>
               <div className="p-3 bg-slate-800/60 rounded-xl border border-slate-700/60">
-                <span className="font-semibold text-amber-400">Unit 4 Time Series:</span> Additive decomposition separates Trend, Seasonality, and Residual noise; SARIMA forecasts weekly cycles.
+                <span className="font-semibold text-amber-400">Seasonal Forecasts:</span> Additive decomposition separates Trend, Seasonality, and Residual noise; SARIMA forecasts weekly cycles.
               </div>
             </div>
           </div>
 
           <button
-            onClick={() => onNavigate('syllabus')}
+            onClick={() => onNavigate('forecasting')}
             className="mt-4 w-full py-2.5 px-4 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 rounded-xl text-xs font-semibold transition text-center"
           >
-            Review Viva Questions & Syllabus Guide →
+            Launch Forecasting Studio →
           </button>
         </div>
       </div>

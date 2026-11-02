@@ -36,7 +36,6 @@ flowchart TD
         UI_CLF[5. Demand Surge & Stockout Classifier]
         UI_SIM[6. Prescriptive What-If Simulator]
         UI_DATA[7. Dataset Explorer & Quality Audit]
-        UI_VIVA[8. Academic Syllabus & Viva Guide]
     end
 
     subgraph Server["Backend REST API: Python Flask + CORS"]
@@ -177,8 +176,7 @@ SalesSense-AI-Retail-Forecasting/
 │           ├── ModelComparison.jsx # RMSE/MAE leaderboard & actual vs pred
 │           ├── ClassificationRisk.jsx  # Logistic regression, F1, ROC-AUC
 │           ├── WhatIfSimulator.jsx # Price elasticity & promotion simulator
-│           ├── DatasetExplorer.jsx # Paginated table & missing value audit
-│           └── AcademicSyllabusViva.jsx# MUJ CSE3141 viva defense guide
+│           └── DatasetExplorer.jsx # Paginated table & missing value audit
 ├── .gitignore
 ├── README.md                       # Comprehensive project documentation
 └── run_app.bat                     # One-click Windows startup script
@@ -186,19 +184,17 @@ SalesSense-AI-Retail-Forecasting/
 
 ---
 
-## 🎓 Expected Viva Defense Q&A
+## 💡 Predictive Analytics Architecture FAQs
 
-1. **Q: Why is a chronological split required instead of random k-fold cross validation?**
-   - **A:** Random splits create lookahead bias and temporal leakage. Future points leak autocorrelation and trend backwards into past training sets. A chronological split models real forward deployment.
-2. **Q: Why does Random Forest outperform SARIMA in raw RMSE?**
-   - **A:** Random Forest leverages cross-sectional exogenous features (unit price, competitor price, discount percentages, marketing ad spend, and holiday indicators) alongside autoregressive lags. Pure SARIMA relies solely on endogenous series history.
-3. **Q: What is the significance of the odds ratio in Logistic Regression?**
-   - **A:** An odds ratio $e^{\beta} > 1$ signifies that an increase in that feature increases the probability of high demand surges. Running a promotional event yields an odds ratio of $>3.2$, meaning sales are over 3 times more likely to spike.
+1. **Why is a chronological split required instead of random k-fold cross validation?**
+   - Random splits create lookahead bias and temporal leakage. Future points leak autocorrelation and trend backwards into past training sets. A chronological split models real forward deployment.
+2. **Why does Random Forest outperform SARIMA in raw RMSE?**
+   - Random Forest leverages cross-sectional exogenous features (unit price, competitor price, discount percentages, marketing ad spend, and holiday indicators) alongside autoregressive lags. Pure SARIMA relies solely on endogenous series history.
+3. **What is the significance of the odds ratio in Logistic Regression?**
+   - An odds ratio $e^{\beta} > 1$ signifies that an increase in that feature increases the probability of high demand surges. Running a promotional event yields an odds ratio of $>7.1$, meaning sales are over 7 times more likely to spike.
 
 ---
 
-## 👩‍💻 Author & Academic Affiliation
-- **Student Name:** Shatakshi Singh
-- **Course:** Predictive Analytics (CSE3141)
-- **Degree:** Bachelor of Technology in Computer Science & Engineering (B.Tech CSE)
-- **Institution:** Manipal University Jaipur (MUJ)
+## 👩‍💻 Author & Project Credits
+- **Author:** Shatakshi Singh
+- **System:** SalesSense AI • Enterprise Retail Sales Forecasting & Business Analytics Platform

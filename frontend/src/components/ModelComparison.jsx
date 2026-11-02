@@ -29,7 +29,7 @@ export default function ModelComparison() {
 
   useEffect(() => {
     setLoading(true)
-    fetch(`/api/models/leaderboard?category=${category}`)
+    fetch(`/api/models/leaderboard?category=${encodeURIComponent(category)}`)
       .then((res) => res.json())
       .then((json) => {
         setData(json)
@@ -60,7 +60,7 @@ export default function ModelComparison() {
           <div>
             <div className="flex items-center space-x-2">
               <span className="px-2.5 py-0.5 text-xs font-semibold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 rounded-full">
-                Syllabus Unit 5: Model Validation & Performance Metrics
+                Model Validation & Benchmarking
               </span>
             </div>
             <h1 className="text-xl font-bold text-white mt-1">Predictive Model Comparison & Benchmarking Arena</h1>
@@ -88,7 +88,7 @@ export default function ModelComparison() {
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center space-x-2">
             <Award className="w-5 h-5 text-amber-400" />
-            <h2 className="text-base font-bold text-white">Model Evaluation Leaderboard (CSE3141 Core Metrics)</h2>
+            <h2 className="text-base font-bold text-white">Model Evaluation Leaderboard</h2>
           </div>
           <span className="text-xs text-slate-400">Sorted by RMSE (Lower is Better)</span>
         </div>
@@ -205,12 +205,12 @@ export default function ModelComparison() {
           </div>
         </div>
 
-        {/* Syllabus Overfitting vs Underfitting Defense Guide */}
+        {/* Overfitting vs Underfitting Controls */}
         <div className="bg-slate-900/80 border border-slate-800 p-5 rounded-2xl flex flex-col justify-between">
           <div>
             <div className="flex items-center space-x-2 text-indigo-400 text-xs font-bold uppercase tracking-wider mb-2">
               <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-              <span>Syllabus Unit 5 Defense Topic</span>
+              <span>Generalization Controls</span>
             </div>
             <h3 className="text-base font-bold text-white">Techniques Handling Overfitting & Underfitting</h3>
             <div className="mt-3 space-y-2.5 text-xs text-slate-300">

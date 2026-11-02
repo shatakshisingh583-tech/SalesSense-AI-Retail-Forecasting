@@ -18,7 +18,7 @@ export default function DatasetExplorer() {
 
   useEffect(() => {
     setLoading(true)
-    fetch(`/api/dataset?page=${page}&page_size=12&category=${category}`)
+    fetch(`/api/dataset?page=${page}&page_size=12&category=${encodeURIComponent(category)}`)
       .then((res) => res.json())
       .then((json) => {
         setData(json)
@@ -41,7 +41,7 @@ export default function DatasetExplorer() {
         <div>
           <div className="flex items-center space-x-2">
             <span className="px-2.5 py-0.5 text-xs font-semibold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 rounded-full">
-              Syllabus Unit 2: Data Preprocessing & Integrity
+              Dataset Schema & Data Integrity Audit
             </span>
           </div>
           <h1 className="text-xl font-bold text-white mt-1">Retail Store Dataset Explorer</h1>

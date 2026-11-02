@@ -53,7 +53,7 @@ export default function ClassificationRisk() {
       <div className="bg-slate-900/80 border border-slate-800 p-5 rounded-2xl">
         <div className="flex items-center space-x-2">
           <span className="px-2.5 py-0.5 text-xs font-semibold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 rounded-full">
-            Syllabus Unit 3 & 5: Logistic Regression, F1-Score & AUC-ROC
+            Logistic Regression & Classification Diagnostics
           </span>
         </div>
         <h1 className="text-xl font-bold text-white mt-1">High-Demand Surge & Stockout Risk Classifier</h1>
@@ -80,12 +80,12 @@ export default function ClassificationRisk() {
           <p className="text-[10px] text-slate-500 mt-1">TP / (TP + FN)</p>
         </div>
         <div className="bg-slate-900/80 border border-slate-800 p-4 rounded-xl">
-          <span className="text-xs font-medium text-slate-400">F1-Score (Syllabus)</span>
+          <span className="text-xs font-medium text-slate-400">F1-Score (Harmonic Mean)</span>
           <p className="text-xl font-bold text-amber-400 mt-1">{f1_score}</p>
           <p className="text-[10px] text-slate-500 mt-1">Harmonic mean of P & R</p>
         </div>
         <div className="bg-slate-900/80 border border-slate-800 p-4 rounded-xl col-span-2 sm:col-span-1">
-          <span className="text-xs font-medium text-slate-400">AUC-ROC (Syllabus)</span>
+          <span className="text-xs font-medium text-slate-400">AUC-ROC (Discrimination Index)</span>
           <p className="text-xl font-bold text-purple-400 mt-1">{auc_roc}</p>
           <p className="text-[10px] text-slate-500 mt-1">Discriminative power index</p>
         </div>
@@ -165,7 +165,7 @@ export default function ClassificationRisk() {
               Logistic Regression Coefficient Estimation (&beta;) & Odds Ratios (e<sup>&beta;</sup>)
             </h3>
             <p className="text-xs text-slate-400">
-              Syllabus Unit 3: Inference of regression coefficients for binary class classification.
+              Inference of regression coefficients and odds ratios for binary class surge prediction.
             </p>
           </div>
         </div>

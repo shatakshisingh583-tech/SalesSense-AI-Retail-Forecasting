@@ -80,7 +80,7 @@ export default function ForecastingStudio() {
       <div className="bg-slate-900/80 border border-slate-800 p-5 rounded-2xl">
         <div className="flex items-center space-x-2">
           <span className="px-2.5 py-0.5 text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-full">
-            Syllabus Unit 4: Time Series Forecasting (ARIMA / SARIMA / Exp Smoothing)
+            High-Precision Time Series Forecasting Engine
           </span>
         </div>
         <h1 className="text-xl font-bold text-white mt-1">Multi-Horizon Demand Forecasting Studio</h1>

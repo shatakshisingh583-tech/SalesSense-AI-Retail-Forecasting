@@ -6,7 +6,6 @@ import {
   GitCompare,
   Sliders,
   Database,
-  GraduationCap,
   Activity,
   Github,
   ShieldAlert
@@ -20,15 +19,14 @@ export default function Navbar({ activeTab, setActiveTab }) {
     { id: 'models', label: 'Model Arena', icon: GitCompare },
     { id: 'classifier', label: 'Surge Classifier', icon: ShieldAlert },
     { id: 'whatif', label: 'What-If Simulator', icon: Sliders },
-    { id: 'dataset', label: 'Dataset Explorer', icon: Database },
-    { id: 'syllabus', label: 'Viva & Syllabus Guide', icon: GraduationCap }
+    { id: 'dataset', label: 'Dataset Explorer', icon: Database }
   ]
 
   return (
     <header className="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo and Academic Badge */}
+          {/* Logo and System Status */}
           <div className="flex items-center space-x-3">
             <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-indigo-600 flex items-center justify-center shadow-lg shadow-indigo-500/20">
               <TrendingUp className="w-6 h-6 text-white" />
@@ -38,15 +36,15 @@ export default function Navbar({ activeTab, setActiveTab }) {
                 <span className="text-xl font-bold tracking-tight text-white">SalesSense<span className="text-emerald-400">.AI</span></span>
                 <span className="px-2 py-0.5 text-[11px] font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 rounded-full">v2.0 Production</span>
               </div>
-              <p className="text-xs text-slate-400 font-medium">CSE3141 Predictive Analytics Mini Project</p>
+              <p className="text-xs text-slate-400 font-medium">Retail Demand & Revenue Intelligence</p>
             </div>
           </div>
 
-          {/* GitHub link and Academic Details */}
+          {/* GitHub link and Engine Status */}
           <div className="flex items-center space-x-3">
             <div className="hidden md:flex items-center space-x-2 text-xs bg-slate-800/80 px-3 py-1.5 rounded-lg border border-slate-700 text-slate-300">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              <span>MUJ CSE V Sem | 15/15 Marks Goal</span>
+              <span>Operational • Multi-Store Engine</span>
             </div>
             <a
               href="https://github.com/shatakshisingh583-tech/SalesSense-AI-Retail-Forecasting"

@@ -28,7 +28,7 @@ export default function EdaLab() {
 
   useEffect(() => {
     setLoading(true)
-    fetch(`/api/eda?category=${category}`)
+    fetch(`/api/eda?category=${encodeURIComponent(category)}`)
       .then((res) => res.json())
       .then((json) => {
         setData(json)
@@ -70,7 +70,7 @@ export default function EdaLab() {
         <div>
           <div className="flex items-center space-x-2">
             <span className="px-2.5 py-0.5 text-xs font-semibold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 rounded-full">
-              Syllabus Unit 2: Data Exploration & Preprocessing
+              Statistical Profiling & Outlier Analytics
             </span>
           </div>
           <h1 className="text-xl font-bold text-white mt-1">Exploratory Data Analysis & Outlier Detection</h1>
@@ -101,7 +101,7 @@ export default function EdaLab() {
       <div>
         <h2 className="text-sm font-semibold text-slate-300 mb-3 flex items-center space-x-2">
           <Activity className="w-4 h-4 text-emerald-400" />
-          <span>Descriptive Statistics (CSE3141 Syllabus: Mean, Median, Mode, Variance, Std Dev, Z-Score)</span>
+          <span>Core Descriptive Statistics (Mean, Median, Mode, Variance, Std Dev, Z-Score)</span>
         </h2>
         <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3">
           {statItems.map((item) => (
@@ -197,13 +197,13 @@ export default function EdaLab() {
         </div>
       </div>
 
-      {/* Seasonal Decomposition: Trend, Seasonality, Noise Residuals (CSE3141 Unit 4) */}
+      {/* Seasonal Decomposition: Trend, Seasonality, Noise Residuals */}
       <div className="bg-slate-900/80 border border-slate-800 p-5 rounded-2xl">
         <div className="flex items-center justify-between mb-4">
           <div>
             <div className="flex items-center space-x-2">
               <span className="text-xs px-2 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 rounded-full font-medium">
-                Unit 4: Trends, Seasonality & Noise Decomposition
+                Time Series Component Decomposition
               </span>
             </div>
             <h3 className="text-base font-bold text-white mt-1">Time Series Additive Decomposition [Y(t) = Trend(t) + Seasonal(t) + Residual(t)]</h3>

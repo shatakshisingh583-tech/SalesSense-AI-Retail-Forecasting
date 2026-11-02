@@ -34,6 +34,18 @@ lr_model = joblib.load(os.path.join(MODELS_DIR, 'linear_regression.joblib'))
 rf_model = joblib.load(os.path.join(MODELS_DIR, 'random_forest.joblib'))
 log_reg_model = joblib.load(os.path.join(MODELS_DIR, 'logistic_regression.joblib'))
 
+def resolve_category(raw_val):
+    """Robustly resolve product category handling URL unescaping and parameter splits."""
+    if not raw_val:
+        return 'Grocery'
+    raw_str = str(raw_val).strip()
+    if 'home' in raw_str.lower() or 'kitchen' in raw_str.lower() or 'Kitchen' in request.args or 'kitchen' in request.args:
+        return 'Home & Kitchen'
+    for valid in ['Grocery', 'Electronics', 'Apparel', 'Home & Kitchen']:
+        if raw_str.lower() == valid.lower():
+            return valid
+    return 'Grocery'
+
 @app.route('/api/health', methods=['GET'])
 def health_check():
     return jsonify({
@@ -101,10 +113,7 @@ def get_overview():
 
 @app.route('/api/eda', methods=['GET'])
 def get_eda():
-    selected_category = request.args.get('category', 'Grocery')
-    if selected_category not in CACHE['eda']:
-        selected_category = 'Grocery'
-        
+    selected_category = resolve_category(request.args.get('category'))
     cat_data = CACHE['eda'][selected_category]
     
     # Calculate histogram bin counts for distribution visualization
@@ -140,7 +149,7 @@ def get_eda():
 @app.route('/api/forecast', methods=['POST'])
 def make_forecast():
     data = request.get_json() or {}
-    category = data.get('category', 'Grocery')
+    category = resolve_category(data.get('category'))
     horizon = int(data.get('horizon', 14)) # 7, 14, 30 days
     model_type = data.get('model', 'SARIMA') # 'SARIMA', 'Holt-Winters', 'Random Forest', 'Ensemble'
 
@@ -224,7 +233,7 @@ def make_forecast():
 
 @app.route('/api/models/leaderboard', methods=['GET'])
 def get_leaderboard():
-    selected_category = request.args.get('category', 'Grocery')
+    selected_category = resolve_category(request.args.get('category'))
     comparison_data = CACHE['timeseries_metrics']['actual_vs_pred_by_cat'].get(selected_category, [])
 
     return jsonify({
@@ -246,7 +255,7 @@ def get_classification():
 @app.route('/api/whatif', methods=['POST'])
 def simulate_whatif():
     params = request.get_json() or {}
-    category = params.get('category', 'Grocery')
+    category = resolve_category(params.get('category'))
     cat_df = df[df['category'] == category]
     
     base_price = float(params.get('unit_price', cat_df['unit_price'].mean()))
@@ -311,9 +320,10 @@ def simulate_whatif():
 def get_dataset():
     page = int(request.args.get('page', 1))
     page_size = int(request.args.get('page_size', 15))
-    category = request.args.get('category', None)
+    raw_cat = request.args.get('category', None)
+    category = None if not raw_cat or raw_cat == 'All' else resolve_category(raw_cat)
 
-    sub_df = df if not category or category == 'All' else df[df['category'] == category]
+    sub_df = df if not category else df[df['category'] == category]
     total_count = len(sub_df)
     
     start_idx = (page - 1) * page_size
